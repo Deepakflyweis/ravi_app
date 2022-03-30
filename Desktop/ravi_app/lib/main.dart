@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:ravi_app/essentials/essentials.dart';
+import 'package:ravi_app/modules/login/getstarted_screen.dart';
+import 'package:ravi_app/ui/about_us.dart';
+import 'package:ravi_app/ui/how_to.dart';
+import 'package:ravi_app/ui/money_transfer_rates.dart';
+import 'package:ravi_app/ui/terms_cond.dart';
 
+import 'modules/add_benificary/add_benificary_screen.dart';
 import 'modules/login/login_screen.dart';
+import 'modules/profile/profile_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +32,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginScreen(),
+        home: MoneyTransferRates(),
       );
     });
   }

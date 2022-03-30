@@ -37,6 +37,21 @@ TextStyle  TxtStyleR = const TextStyle(
 
 TextStyle  TxtStyleNR = const TextStyle(
   fontSize: 18.0,
-  color: txtred,
+  color: txtbtndark,
   fontWeight: FontWeight.w500,
+);
+TextStyle  TxtStylebold = const TextStyle(
+  fontSize: 18.0,
+  color: txtdark,
+  fontWeight: FontWeight.bold,
+);
+TextStyle  TxtStyleA = const TextStyle(
+  fontSize: 18.0,
+  color: bordrclr,
+  fontWeight: FontWeight.w500,
+);
+TextStyle  TxtStyleN = const TextStyle(
+  fontSize: 18.0,
+  color: blckclr,
+  fontWeight: FontWeight.normal,
 );

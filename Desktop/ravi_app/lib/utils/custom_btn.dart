@@ -18,8 +18,8 @@ class CustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,
         textStyle: TextStyle(color: whiteclr,fontWeight: FontWeight.w500,fontSize: 20),
         child: Container(
-          height: 50,
-          width: 300,
+          height: 55,
+          width: 340,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: txtbtndark,

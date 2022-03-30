@@ -1,5 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:ravi_app/modules/transfer/transfer_screen.dart';
+import 'package:ravi_app/ui/about_us.dart';
+import 'package:ravi_app/ui/terms_cond.dart';
 import 'package:ravi_app/utils/custom_appbar.dart';
 import 'package:ravi_app/utils/custom_btn.dart';
 import 'package:ravi_app/widgets/app_color.dart';
@@ -58,6 +63,8 @@ class _MenuHomeState extends State<MenuHome> {
                 ),
 
                 SizedBox(height: 5.h,),
+
+                //terms n fingerprint
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -67,29 +74,39 @@ class _MenuHomeState extends State<MenuHome> {
                     ),
 
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.to(()=> TermsnCond());
+                      },
                       child: Image.asset('assets/images/tnc.png'),
                     ),
                   ],
                 ),
 
                 SizedBox(height: 5.h,),
+
+                //about n help
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.to(()=> AboutUs());
+                      },
                       child: Image.asset('assets/images/about.png'),
                     ),
 
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        // Get.to(()=> Help());
+                      },
                       child: Image.asset('assets/images/help.png'),
                     ),
                   ],
                 ),
 
                 SizedBox(height: 5.h,),
+
+                //share
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -108,6 +125,7 @@ class _MenuHomeState extends State<MenuHome> {
 
                 RawMaterialButton(
                   onPressed: (){
+                    Get.to(()=> TransferScreen());
 
                   },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,
