@@ -2,13 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:ravi_app/modules/transaction_history/transaction_history.dart';
 import 'package:ravi_app/modules/transfer/transfer_screen.dart';
 import 'package:ravi_app/ui/about_us.dart';
+import 'package:ravi_app/ui/how_to.dart';
+import 'package:ravi_app/ui/money_transfer_rates.dart';
 import 'package:ravi_app/ui/terms_cond.dart';
 import 'package:ravi_app/utils/custom_appbar.dart';
 import 'package:ravi_app/utils/custom_btn.dart';
 import 'package:ravi_app/widgets/app_color.dart';
 import 'package:sizer/sizer.dart';
+import 'package:local_auth/local_auth.dart';
 
 class MenuHome extends StatefulWidget {
   const MenuHome({Key? key}) : super(key: key);
@@ -18,6 +22,46 @@ class MenuHome extends StatefulWidget {
 }
 
 class _MenuHomeState extends State<MenuHome> {
+
+  final LocalAuthentication _localAuthentication = LocalAuthentication();
+  String _message = "Not Authorized";
+
+  Future<bool> checkingForBioMetrics() async {
+    bool canCheckBiometrics = await _localAuthentication.canCheckBiometrics;
+    print(canCheckBiometrics);
+    return canCheckBiometrics;
+  }
+
+
+  ///   this method opens a dialog for fingerprint authentication.
+  Future<void> _authenticateMe() async {
+    bool authenticated = false;
+    try {
+      authenticated = await _localAuthentication.authenticateWithBiometrics(
+        localizedReason: "Authenticate  ", // message for dialog
+        useErrorDialogs: true, // show error in dialog
+        stickyAuth: true, // native process
+      );
+      setState(() {
+        _message = authenticated ? "Authorized" : "Not Authorized";
+      });
+    } catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
+  }
+
+  @override
+  void initState() {
+// TODO: implement initState
+    checkingForBioMetrics();
+    super.initState();
+  }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,12 +79,17 @@ class _MenuHomeState extends State<MenuHome> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.to(()=> HowToSend());
+
+                      },
                       child: Image.asset('assets/images/howto.png'),
                     ),
 
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.to(()=> MoneyTransferRates());
+                      },
                       child: Image.asset('assets/images/rates.png'),
                     ),
                   ],
@@ -51,7 +100,9 @@ class _MenuHomeState extends State<MenuHome> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.to(()=> TransactionHistory());
+                      },
                       child: Image.asset('assets/images/transh.png'),
                     ),
 
@@ -69,7 +120,9 @@ class _MenuHomeState extends State<MenuHome> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                          _authenticateMe;
+                      },
                       child: Image.asset('assets/images/fingerl.png'),
                     ),
 

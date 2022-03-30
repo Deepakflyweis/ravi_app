@@ -1,6 +1,8 @@
 
 
 import 'package:ravi_app/essentials/essentials.dart';
+import 'package:ravi_app/modules/menu/menu_home.dart';
+import 'package:ravi_app/modules/profile/profile_screen.dart';
 import 'package:ravi_app/widgets/app_color.dart';
 
 class Utility{
@@ -12,12 +14,16 @@ class Utility{
       title: Image.asset('assets/images/headerlogo.png', fit: BoxFit.fill,),
       leading: IconButton(
         icon: Image.asset('assets/images/menu.png', fit: BoxFit.fill,),
-        onPressed: () { },
+        onPressed: () {
+          Get.offAll(()=> MenuHome());
+        },
       ),
       actions: [
         IconButton(
           icon: Image.asset('assets/images/profile.png' ,fit: BoxFit.fill,),
-          onPressed: () { },
+          onPressed: () {
+            Get.to(()=> ProfileScreen());
+          },
         ),
       ],
 

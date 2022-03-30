@@ -39,6 +39,10 @@ dependencies:
   get: ^4.6.1
   lottie: ^1.2.2
   intl: ^0.17.0
+  http: ^0.13.4
+  dio: ^4.0.5
+  connectivity: ^3.0.6
+  local_auth: ^1.1.11
 
 
 dev_dependencies:

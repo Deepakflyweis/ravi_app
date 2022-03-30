@@ -142,7 +142,91 @@ class _BenificiaryListState extends State<BenificiaryList> {
                 color: blckclr,
                 fontWeight: FontWeight.bold,
               ),),
-              SizedBox(height: 3.h,),
+              SizedBox(height: 2.h,),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                          color: txtbtndark,
+                          boxShadow: [BoxShadow(
+                            color: whiteclr,offset: Offset(2, 2),
+                          )
+
+                          ]
+                      ),
+                      alignment: Alignment.center,
+                      child: Text('Sl.No',style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold,color: whiteclr),),
+                    ),
+                    SizedBox(width: 1.w,),
+                    Container(
+                      width: 100,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                          color: txtbtndark,
+                          boxShadow: [BoxShadow(
+                            color: whiteclr,offset: Offset(2, 2),
+                          )
+                          ]
+                      ),
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(' Beneficiary   ', style: TextStyle( fontSize: 11,fontWeight: FontWeight.w600,color: whiteclr),),
+                          Text('Name', style: TextStyle(fontSize: 11,fontWeight: FontWeight.w600,color: whiteclr),),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 1.w,),
+                    Container(
+                      width: 70,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                          color: txtbtndark,
+                          boxShadow: [BoxShadow(
+                            color: whiteclr,offset: Offset(2, 2),
+                          )
+                          ]
+                      ),
+                      alignment: Alignment.center,
+                      child: Text('Bank Name',style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold,color: whiteclr),),
+                    ),
+                    SizedBox(width: 1.w,),
+                    Container(
+                      width: 70,
+                      height: 40,
+                      padding: EdgeInsets.only(left: 10),
+                      decoration: const BoxDecoration(
+                          color: txtbtndark,
+                          boxShadow: [BoxShadow(
+                            color: whiteclr,offset: Offset(2, 2),
+                          )
+                          ]
+                      ),
+                      alignment: Alignment.centerRight,
+                      child: Text(' Penny Testing',style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold,color: whiteclr),),
+                    ),
+                    SizedBox(width: 1.w,),
+                    Container(
+                      width: 70,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                          color: txtbtndark,
+                          boxShadow: [BoxShadow(
+                            color: whiteclr,offset: Offset(2, 2),
+                          )
+                          ]
+                      ),
+                      alignment: Alignment.center,
+                      child: Text('Status',style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold,color: whiteclr),),
+                    ),
+                  ],
+                ),
+              ),
 
             ],
           ),

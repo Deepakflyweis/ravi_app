@@ -14,7 +14,11 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final _form = GlobalKey<FormState>();
+
+  final signupFormKey = GlobalKey<FormState>();
+  final thaiNoFormKey = GlobalKey<FormState>();
+  final passwordFormKey = GlobalKey<FormState>();
+
   final _mr = TextEditingController();
   final _fname = TextEditingController();
   final _lname = TextEditingController();
@@ -22,6 +26,8 @@ class _RegisterState extends State<Register> {
   final _indcity = TextEditingController();
   final _indmob = TextEditingController();
   final _thaimob = TextEditingController();
+  final _pswd = TextEditingController();
+  bool _showPassword = false;
 
 
   var firstController = TextEditingController();
@@ -42,7 +48,7 @@ class _RegisterState extends State<Register> {
         child: Scaffold(
           body: SingleChildScrollView(
             child: Form(
-               key: _form,
+               key: signupFormKey,
               child: Container(
                 decoration:   const BoxDecoration(
                     gradient: bckgroundclr
@@ -231,10 +237,10 @@ class _RegisterState extends State<Register> {
                         controller: _indmob,
                         keyboardType: TextInputType.text,
                         validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field can\'t be empty';
-                          }
-                          return null;
+                          // if (value!.isEmpty) {
+                          //   return 'Field can\'t be empty';
+                          // }
+                          // return null;
                         },
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10.0),
@@ -253,30 +259,33 @@ class _RegisterState extends State<Register> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 62,
-                          width: 220,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2,color: bordrclr,),
-                            color: boxclr,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: TextFormField(
-                            controller: _indmob,
-                            keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Field can\'t be empty';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(10.0),
-                              border: InputBorder.none,
-                              hintText: 'Thai Mobile No.*',
-                              hintStyle: hintTxtStyle,
+                        Form(
+                          key: thaiNoFormKey,
+                          child: Container(
+                            height: 62,
+                            width: 220,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2,color: bordrclr,),
+                              color: boxclr,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: TextFormField(
+                              controller: _thaimob,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter Thai Mobile No.';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(10.0),
+                                border: InputBorder.none,
+                                hintText: 'Thai Mobile No.*',
+                                hintStyle: hintTxtStyle,
 
+                              ),
                             ),
                           ),
                         ),
@@ -409,6 +418,41 @@ class _RegisterState extends State<Register> {
                       ],
                     ),
                     //OTP Box End
+                    SizedBox(height: 2.h,),
+
+                    //Password
+                    Form(
+                      key: passwordFormKey,
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2,color: bordrclr,),
+                          color: boxclr,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: TextFormField(
+                          controller: _pswd,
+                          obscureText: !this._showPassword,
+                          keyboardType: TextInputType.text,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Field can\'t be empty';
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10.0),
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                            hintStyle: hintTxtStyle,
+
+                          ),
+                        ),
+                      ),
+                    ),
+
                     SizedBox(height: 2.h,),
 
                     //register

@@ -44,14 +44,27 @@ class _MoneyTransferRatesState extends State<MoneyTransferRates> {
                     Row(
                       children:   [
                         Expanded(
-                            child: Text(" The rates are as per the international currency exchange and are picked by Transezee, the charges and the conversion costs are as per the desision taken by transezee, the rates are neither concerned nor approved by any authority and the final decisions are with Transezee only. All rights are reserved to Transezee.",
+                            child: Text("The rates are as per the international currency exchange and are picked by Transezee, the charges and the conversion costs are as per the desision taken by transezee, the rates are neither concerned nor approved by any authority and the final decisions are with Transezee only. All rights are reserved to Transezee.",
                             style: hintTxtStyle,)),
                       ],
                     ),
                     SizedBox(height: 5.h,),
-                    CustomButton(
-                        onPressed: (){},
-                        text: 'Transfer Now'),
+                 RawMaterialButton(
+                    onPressed: (){},
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,
+                    textStyle: TextStyle(color: whiteclr,fontWeight: FontWeight.w500,fontSize: 20),
+                    child: Container(
+                      height: 55,
+                      width: 340,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: txtbtndark,
+                        border: Border.all(width: 2,color: whiteclr),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Text('Transfer Now') ,
+                    )
+                ),
                     SizedBox(height: 5.h,),
 
                   ],
