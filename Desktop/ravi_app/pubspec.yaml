@@ -43,6 +43,7 @@ dependencies:
   dio: ^4.0.5
   connectivity: ^3.0.6
   local_auth: ^1.1.11
+  fluttertoast: ^8.0.9
 
 
 dev_dependencies:

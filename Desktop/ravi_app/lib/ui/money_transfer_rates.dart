@@ -24,16 +24,50 @@ class _MoneyTransferRatesState extends State<MoneyTransferRates> {
           child: Column(
 
             children: [
-              SizedBox(height: 5.h,),
+              SizedBox(height: 3.h,),
               Text('Money Transfer Rates',style: TxtStylebold,),
               Divider(thickness: 2,indent: 100,endIndent: 100,),
-              SizedBox(height: 10.h,),
+              SizedBox(height: 8.h,),
               Text("Today's Transfer Rate",style: TxtStyleB,),
-              SizedBox(height: 20.h,),
+
+              //rates
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    "THB",
+                    style: TextStyle(
+                    fontSize: 35.0,
+                    color: blckclr,
+                    fontWeight: FontWeight.w500,
+                  ),),
+                  Text(
+                    " 1 = " + "2.300000 " ,
+                    style: TextStyle(
+                    fontSize: 35.0,
+                    color: bordrclr,
+                    fontWeight: FontWeight.w500,
+                  ),),
+                  Text(
+                     "INR" ,
+                    style: TextStyle(
+                    fontSize: 35.0,
+                    color: blckclr,
+                    fontWeight: FontWeight.w500,
+                  ),),
+
+                ],
+              ),
+              Text("Date: " + "22 Feb, 2022",style: TxtStyleN,),
+              SizedBox(height: 8.h,),
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: const BoxDecoration(
-                  gradient: bckgroundclr,
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/backgroundimg.png"),
+                    fit: BoxFit.cover,
+                  ),
+                  // gradient: bckgroundclr,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -48,8 +82,8 @@ class _MoneyTransferRatesState extends State<MoneyTransferRates> {
                             style: hintTxtStyle,)),
                       ],
                     ),
-                    SizedBox(height: 5.h,),
-                 RawMaterialButton(
+                   SizedBox(height: 5.h,),
+                   RawMaterialButton(
                     onPressed: (){},
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,
                     textStyle: TextStyle(color: whiteclr,fontWeight: FontWeight.w500,fontSize: 20),

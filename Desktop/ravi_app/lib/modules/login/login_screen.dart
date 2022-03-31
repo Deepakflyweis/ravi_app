@@ -46,8 +46,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   height: 600,
                  width: 400,
-                 decoration:   const BoxDecoration(
-                   gradient: bckgroundclr
+                 decoration: const BoxDecoration(
+                   image: DecorationImage(
+                     image: AssetImage("assets/images/backgroundimg.png"),
+                     fit: BoxFit.cover,
+                   ),
+                   // gradient: bckgroundclr
                  ),
                   child: Padding(
                     padding: EdgeInsets.all(20.0),
@@ -90,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                             ),
                           ),
-                      ),
+                        ),
                         ),
 
                         SizedBox(height: 3.h,),
@@ -109,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextFormField(
                           controller: _pswd,
                             obscureText: !this._showPassword,
-                            maxLength: 15,
+                            // maxLength: 15,
                           keyboardType: TextInputType.text,
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -129,34 +133,35 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(height: 3.h,),
 
 
+                        //Login
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             GestureDetector(
                               child: Image.asset('assets/images/login-button.png',height: 60 ,width: 150,fit: BoxFit.fitHeight,),
                               onTap: (){
-                                // Get.offAll(()=> MenuHome());
+                                 Get.offAll(()=> MenuHome());
 
-                                if(thaiNoFormKey.currentState!.validate()){
-                                  if(loginFormKey.currentState!.validate()){
-
-                                    Helpers.verifyInternet().then((intenet) {
-                                      if (intenet != null && intenet){
-                                        // createLogin(_thaimno.text,
-                                        // _pswd.text,context)
-                                        //     .then((response){
-                                        //       setState(() {
-                                        //         loginData(response);
-                                        //       });
-                                        // });
-                                      }else {
-                                        Helpers.createSnackBar(context,
-                                            "Please check your internet connection");
-                                      }
-
-                                    });
-                                  }
-                                }
+                                // if(thaiNoFormKey.currentState!.validate()){
+                                //   if(loginFormKey.currentState!.validate()){
+                                //
+                                //     Helpers.verifyInternet().then((intenet) {
+                                //       if (intenet != null && intenet){
+                                //         // createLogin(_thaimno.text,
+                                //         // _pswd.text,context)
+                                //         //     .then((response){
+                                //         //       setState(() {
+                                //         //         loginData(response);
+                                //         //       });
+                                //         // });
+                                //       }else {
+                                //         Helpers.createSnackBar(context,
+                                //             "Please check your internet connection");
+                                //       }
+                                //
+                                //     });
+                                //   }
+                                // }
                               },
                             ),
                             TextButton(
@@ -179,7 +184,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         Center(
                           child: GestureDetector(
                             onTap: (){},
-                            child: Image.asset('assets/images/login-with-finger-print.png'),),
+                            child: Image.asset('assets/images/login-with-finger-print.png',
+                            width: 350,fit: BoxFit.fitWidth,
+                            ),),
                         ),
                         SizedBox(height: 5.h,),
 

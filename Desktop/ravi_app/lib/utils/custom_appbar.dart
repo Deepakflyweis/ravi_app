@@ -11,7 +11,9 @@ class Utility{
       backgroundColor: whiteclr,
       elevation: 0,
       centerTitle: true,
-      title: Image.asset('assets/images/headerlogo.png', fit: BoxFit.fill,),
+      title: Image.asset('assets/images/headerlogo.png',
+        height: 35 ,
+        fit: BoxFit.fill,),
       leading: IconButton(
         icon: Image.asset('assets/images/menu.png', fit: BoxFit.fill,),
         onPressed: () {

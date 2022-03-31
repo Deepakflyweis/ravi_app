@@ -40,6 +40,12 @@ TextStyle  TxtStyleNR = const TextStyle(
   color: txtbtndark,
   fontWeight: FontWeight.w500,
 );
+
+TextStyle  TxtStyleT = const TextStyle(
+  fontSize: 18.0,
+  color: txtred,
+  fontWeight: FontWeight.w700,
+);
 TextStyle  TxtStylebold = const TextStyle(
   fontSize: 18.0,
   color: txtdark,

@@ -6,6 +6,8 @@ import 'package:ravi_app/modules/menu/menu_home.dart';
 import 'package:ravi_app/widgets/app_color.dart';
 import 'package:ravi_app/widgets/textstyle.dart';
 
+import '../../utils/helpers.dart';
+
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -18,6 +20,8 @@ class _RegisterState extends State<Register> {
   final signupFormKey = GlobalKey<FormState>();
   final thaiNoFormKey = GlobalKey<FormState>();
   final passwordFormKey = GlobalKey<FormState>();
+  final  thaiCityFormKey = GlobalKey<FormState>();
+  final   nameFormKey = GlobalKey<FormState>();
 
   final _mr = TextEditingController();
   final _fname = TextEditingController();
@@ -51,7 +55,11 @@ class _RegisterState extends State<Register> {
                key: signupFormKey,
               child: Container(
                 decoration:   const BoxDecoration(
-                    gradient: bckgroundclr
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/backgroundimg.png"),
+                    fit: BoxFit.cover,
+                  ),
+                    // gradient: bckgroundclr
                 ),
                 padding: EdgeInsets.all(20),
                 child: Column(
@@ -66,124 +74,133 @@ class _RegisterState extends State<Register> {
                     SizedBox(height: 3.h,),
 
                     //mr
-                    Row(
-                      children: [
+                    Form(
+                      key: nameFormKey,
+                      child: Row(
+                        children: [
 
-                        Container(
-                          height: 60,
-                          width: 60,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2,color: bordrclr,),
-                            color: boxclr,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: TextFormField(
-                            controller: _mr,
-                            keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Field can\'t be empty';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(10.0),
-                              border: InputBorder.none,
-                              hintText: 'Mr',
-                              hintStyle: hintTxtStyle,
+                          Container(
+                            height: 60,
+                            width: 60,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2,color: bordrclr,),
+                              color: boxclr,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: TextFormField(
+                              controller: _mr,
+                              textInputAction: TextInputAction.next,
 
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                // if (value!.isEmpty) {
+                                //   return 'Field can\'t be empty';
+                                // }
+                                // return null;
+                              },
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(10.0),
+                                border: InputBorder.none,
+                                hintText: 'Mr.',
+                                hintStyle: hintTxtStyle,
+
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 1.h,),
-                        Container(
+                          SizedBox(width: 1.h,),
+                          Container(
 
-                          height: 60,
-                          width: 120,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2,color: bordrclr,),
-                            color: boxclr,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: TextFormField(
-                            controller: _fname,
-                            keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Field can\'t be empty';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(10.0),
-                              border: InputBorder.none,
-                              hintText: 'First Name',
-                              hintStyle: hintTxtStyle,
+                            height: 60,
+                            width: 120,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2,color: bordrclr,),
+                              color: boxclr,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: TextFormField(
+                              controller: _fname,
+                              textInputAction: TextInputAction.next,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                // if (value!.isEmpty) {
+                                //   return 'Field can\'t be empty';
+                                // }
+                                // return null;
+                              },
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(10.0),
+                                border: InputBorder.none,
+                                hintText: 'First Name',
+                                hintStyle: hintTxtStyle,
 
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 1.h,),
+                          SizedBox(width: 1.h,),
+                          Container(
+                            height: 60,
+                            width: 120,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2,color: bordrclr,),
+                              color: boxclr,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: TextFormField(
+                              controller: _lname,
+                              textInputAction: TextInputAction.next,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                // if (value!.isEmpty) {
+                                //   return 'Field can\'t be empty';
+                                // }
+                                // return null;
+                              },
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(10.0),
+                                border: InputBorder.none,
+                                hintText: 'Last Name',
+                                hintStyle: hintTxtStyle,
 
-                        Container(
-
-                          height: 60,
-                          width: 120,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2,color: bordrclr,),
-                            color: boxclr,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: TextFormField(
-                            controller: _lname,
-                            keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Field can\'t be empty';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(10.0),
-                              border: InputBorder.none,
-                              hintText: 'Last Name',
-                              hintStyle: hintTxtStyle,
-
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     SizedBox(height: 2.h,),
 
                     //thai Residing City*
-                    Container(
-                      height: 60,
-                      width: 350,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 2,color: bordrclr,),
-                        color: boxclr,
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: TextFormField(
-                        controller: _thaicity,
-                        keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field can\'t be empty';
-                          }
-                          return null;
-                        },
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(10.0),
-                          border: InputBorder.none,
-                          hintText: 'Thai Residing City*',
-                          hintStyle: hintTxtStyle,
+                    Form(
+                      key: thaiCityFormKey,
+                      child: Container(
+                        height: 60,
+                        width: 350,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2,color: bordrclr,),
+                          color: boxclr,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: TextFormField(
+                          controller: _thaicity,
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.text,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Field can\'t be empty';
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10.0),
+                            border: InputBorder.none,
+                            hintText: 'Thai Residing City*',
+                            hintStyle: hintTxtStyle,
 
+                          ),
                         ),
                       ),
                     ),
@@ -192,7 +209,6 @@ class _RegisterState extends State<Register> {
 
                     //Indian Residing City*
                     Container(
-
                       height: 60,
                       width: 350,
                       alignment: Alignment.center,
@@ -204,11 +220,12 @@ class _RegisterState extends State<Register> {
                       child: TextFormField(
                         controller: _indcity,
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
                         validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field can\'t be empty';
-                          }
-                          return null;
+                          // if (value!.isEmpty) {
+                          //   return 'Field can\'t be empty';
+                          // }
+                          // return null;
                         },
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10.0),
@@ -235,7 +252,8 @@ class _RegisterState extends State<Register> {
                       ),
                       child: TextFormField(
                         controller: _indmob,
-                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.number,
                         validator: (value) {
                           // if (value!.isEmpty) {
                           //   return 'Field can\'t be empty';
@@ -254,7 +272,6 @@ class _RegisterState extends State<Register> {
 
                     SizedBox(height: 2.h,),
 
-
                     //Thai Mobile No.*
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -272,7 +289,8 @@ class _RegisterState extends State<Register> {
                             ),
                             child: TextFormField(
                               controller: _thaimob,
-                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.next,
+                              keyboardType: TextInputType.number,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter Thai Mobile No.';
@@ -460,7 +478,30 @@ class _RegisterState extends State<Register> {
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
                         onTap: (){
-                          Get.offAll(()=> MenuHome());
+                            Get.offAll(()=> MenuHome());
+                          // if (thaiNoFormKey.currentState!.validate()) {
+                          //   if (passwordFormKey.currentState!.validate()) {
+                          //     if (!signupFormKey.currentState!.validate()) {
+                          //     }
+                          //     else {
+                          //       Helpers.verifyInternet().then((intenet) {
+                          //         if (intenet == '') {
+                          //           return 'Please enter your Thai Mobile number';
+                          //           // if (_passwordController.text ==
+                          //           //     _confirmPasswordController.text) {
+                          //           //
+                          //           // }
+                          //         }
+                          //
+                          //         else {
+                          //           Helpers.createSnackBar(context,
+                          //               "Please check your internet connection");
+                          //         }
+                          //       });
+                          //     }
+                          //   }
+                          // }
+
                         },
                         child: Image.asset('assets/images/register-button.png',
                           height: 75,fit: BoxFit.fitHeight,

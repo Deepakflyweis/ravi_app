@@ -70,7 +70,11 @@ class _MenuHomeState extends State<MenuHome> {
         body: SingleChildScrollView(
           child: Container(
             decoration:   const BoxDecoration(
-                gradient: bckgroundclr
+              image: DecorationImage(
+                image: AssetImage("assets/images/backgroundimg.png"),
+                fit: BoxFit.cover,
+              ),
+                // gradient: bckgroundclr
             ),
             child: Column(
               children: [

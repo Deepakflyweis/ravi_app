@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:ravi_app/essentials/essentials.dart';
 import 'package:ravi_app/modules/login/getstarted_screen.dart';
+import 'package:ravi_app/modules/profile/profile_screen.dart';
+import 'package:ravi_app/modules/recipient_details/recipient_details.dart';
+import 'package:ravi_app/ui/money_transfer_rates.dart';
 
-import 'modules/menu/menu_home.dart';
 
 
 void main() {
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MenuHome(),
+        home: GetStarted(),
       );
     });
   }
