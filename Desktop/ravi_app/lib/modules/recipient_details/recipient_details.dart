@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ravi_app/essentials/essentials.dart';
+import 'package:ravi_app/utils/custom_btn.dart';
 
 import '../../utils/custom_appbar.dart';
 import '../../widgets/textstyle.dart';
@@ -55,8 +56,12 @@ class _RecipientDetailsState extends State<RecipientDetails> {
                     Text(' ',style: TxtStyleT,),
                   ],
                 ),
-                SizedBox(height: 2.h,),
-
+                SizedBox(height: 5.h,),
+                CustomButton(
+                  onPressed: (){},
+                  text: 'Back',
+                ),
+                SizedBox(height: 5.h,),
 
               ],
             ),

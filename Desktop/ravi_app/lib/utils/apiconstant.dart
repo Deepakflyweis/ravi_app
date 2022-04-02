@@ -1,16 +1,22 @@
 
+import 'dart:developer';
+
 import '../essentials/essentials.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ApiUrls{
-  static const String secretKey = "sk_test_51EgyRrItQT8ZzyO1I06TwbGRQh8DTchlm51IBEGXL1AJWftWcuQqRG33A1q4BB8fipdPA398bM9NzU2flKii2NBf00L14WjNyA";
-  static const String publicKey = "pk_test_xIudhR1N8ZnqHogumhfmpskw00NJg6zqor";
 
 
+  static const String apiBaseUrl = 'https://baht-2020.herokuapp.com/api/';
+  static const String loginUrl = apiBaseUrl + "signin";
+  static const String registerUrl = apiBaseUrl + "signup";
+  static const String updateprofileUrl = apiBaseUrl + "update/624506579a5e479d4410bd8b";
+  static const String addbeneficiaryUrl = apiBaseUrl + "add/addBeneficiary";
 
-  static const String apiBaseUrl = 'http://partwit.inditechitsolution.com/api/';
-  static const String loginUrl = apiBaseUrl + "login";
-  static const String registerUrl = apiBaseUrl + "register";
+}
+
+logPrint(String logis) {
+  log(logis);
 }
 
 
